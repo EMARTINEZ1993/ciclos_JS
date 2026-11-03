@@ -1,0 +1,2523 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guía: Ciclos en JavaScript</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="cab">
+      <div class="cab-in">
+        <p class="eti">Guía de aprendizaje · JavaScript</p>
+        <h1>Ciclos en JavaScript</h1>
+        <p class="sub">
+          Aprende a usar for, while y do...while con ejercicios prácticos.
+        </p>
+      </div>
+    </header>
+    <nav class="barra-nav" aria-label="Navegación de la guía">
+      <div class="barra-in">
+        <span id="indicador">Paso 1 de 19</span>
+        <label
+          for="selPaso"
+          class="sr"
+          style="position: absolute; left: -9999px"
+          >Ir al paso</label
+        >
+        <select id="selPaso">
+          <option value="1">1. Presentación de la guía</option>
+          <option value="2">2. ¿Qué es un ciclo?</option>
+          <option value="3">3. Ciclo for</option>
+          <option value="4">4. Ciclo while</option>
+          <option value="5">5. Ciclo do...while</option>
+          <option value="6">6. Diferencias y cuándo usar cada ciclo</option>
+          <option value="7">7. Crear la carpeta del proyecto</option>
+          <option value="8">8. Página de inicio (index.html)</option>
+          <option value="9">9. Ejemplos guiados</option>
+          <option value="10">
+            10. Ejercicio 1 · Sistema de compras en una tienda
+          </option>
+          <option value="11">
+            11. Ejercicio 2 · Registro de notas de un estudiante
+          </option>
+          <option value="12">
+            12. Ejercicio 3 · Control de gastos mensuales
+          </option>
+          <option value="13">
+            13. Ejercicio 4 · Análisis de números ingresados
+          </option>
+          <option value="14">
+            14. Ejercicio 5 · Sistema de inicio de sesión
+          </option>
+          <option value="15">
+            15. Ejercicio 6 · Estadísticas de ventas de un negocio
+          </option>
+          <option value="16">16. Ejercicio 7 · Nómina de empleados</option>
+          <option value="17">
+            17. Ejercicio 8 · Juego de adivinar el número
+          </option>
+          <option value="18">18. Reto final · Cajero automático</option>
+          <option value="19">19. Verificación y cierre</option>
+        </select>
+        <progress
+          id="barra"
+          class="progreso"
+          aria-label="Progreso de la guía"
+          min="1"
+          max="19"
+          value="1"
+        ></progress>
+      </div>
+    </nav>
+    <main id="contenido">
+      <section
+        class="paso"
+        id="paso-1"
+        data-titulo="Presentación de la guía"
+        aria-labelledby="t1"
+      >
+        <p class="paso-num">Paso 1 de 19</p>
+        <h2 id="t1">Presentación de la guía</h2>
+        <p>
+          Aprenderás a repetir instrucciones con <code>for</code>,
+          <code>while</code> y <code>do...while</code>, y luego los usarás en
+          ejercicios de JavaScript.
+        </p>
+        <p>
+          Al final tendrás ocho ejercicios y un reto funcionando en el
+          navegador. La guía incluye el HTML; tú completarás la lógica con
+          ciclos.
+        </p>
+        <p>
+          <strong>Necesitas:</strong> variables, condicionales y nociones
+          básicas de JavaScript.
+        </p>
+      </section>
+      <section
+        class="paso"
+        id="paso-2"
+        data-titulo="¿Qué es un ciclo?"
+        aria-labelledby="t2"
+      >
+        <p class="paso-num">Paso 2 de 19</p>
+        <h2 id="t2">¿Qué es un ciclo?</h2>
+        <p>
+          Un <strong>ciclo</strong> repite instrucciones mientras se cumpla una
+          condición. Cada repetición es una iteración.
+        </p>
+        <p>
+          En general, un ciclo necesita tres cosas: un valor inicial, una
+          condición para continuar y un cambio que permita terminar.
+        </p>
+        <p>
+          Puedes probar los ejemplos copiándolos en la consola del navegador
+          (<kbd>F12</kbd>).
+        </p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>Ejemplo: contar hasta 3</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>for (let i = 1; i &lt;= 3; i++) {
+  console.log(i);
+}</code></pre>
+        </div>
+        <p>
+          <strong>Regla importante:</strong> comprueba que la condición pueda
+          volverse falsa; de lo contrario, crearás un ciclo infinito.
+        </p>
+      </section>
+      <section
+        class="paso"
+        id="paso-3"
+        data-titulo="Ciclo for"
+        aria-labelledby="t3"
+      >
+        <p class="paso-num">Paso 3 de 19</p>
+        <h2 id="t3">Ciclo for</h2>
+        <p>
+          Usa <code>for</code> cuando conoces la cantidad de repeticiones. La
+          inicialización, la condición y el cambio del contador van en una sola
+          línea.
+        </p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>Sumar del 1 al 5</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>let suma = 0;
+
+for (let i = 1; i &lt;= 5; i++) {
+  suma += i;
+}
+
+console.log(suma); // 15</code></pre>
+        </div>
+        <p>
+          En cada vuelta se suma <code>i</code>; al llegar a 5, el ciclo
+          termina.
+        </p>
+      </section>
+      <section
+        class="paso"
+        id="paso-4"
+        data-titulo="Ciclo while"
+        aria-labelledby="t4"
+      >
+        <p class="paso-num">Paso 4 de 19</p>
+        <h2 id="t4">Ciclo while</h2>
+        <p>
+          Usa <code>while</code> cuando la cantidad de repeticiones depende de
+          una condición. Esta se revisa antes de cada vuelta.
+        </p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>Duplicar hasta superar 10</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>let valor = 1;
+
+while (valor &lt;= 10) {
+  console.log(valor);
+  valor *= 2; // actualiza el valor para que el ciclo termine
+}</code></pre>
+        </div>
+        <p>
+          La salida es 1, 2, 4 y 8. Si la condición es falsa desde el inicio, el
+          cuerpo no se ejecuta.
+        </p>
+      </section>
+      <section
+        class="paso"
+        id="paso-5"
+        data-titulo="Ciclo do...while"
+        aria-labelledby="t5"
+      >
+        <p class="paso-num">Paso 5 de 19</p>
+        <h2 id="t5">Ciclo do...while</h2>
+        <p>
+          Usa <code>do...while</code> cuando el código deba ejecutarse al menos
+          una vez. La condición se revisa al final.
+        </p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>Ejecutar una vez y revisar la condición</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>let numero = 0;
+
+do {
+  console.log(&quot;El menú aparece&quot;);
+} while (numero !== 0);</code></pre>
+        </div>
+        <p>
+          Aunque la condición inicialmente sea falsa, el bloque se ejecuta una
+          vez. No olvides el punto y coma después de <code>while (...)</code>.
+        </p>
+      </section>
+      <section
+        class="paso"
+        id="paso-6"
+        data-titulo="Diferencias y cuándo usar cada ciclo"
+        aria-labelledby="t6"
+      >
+        <p class="paso-num">Paso 6 de 19</p>
+        <h2 id="t6">Diferencias y cuándo usar cada ciclo</h2>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th><code>for</code></th>
+              <th><code>while</code></th>
+              <th><code>do...while</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>¿Cuándo usarlo?</strong></td>
+              <td>Sabes cuántas vueltas habrá.</td>
+              <td>No sabes cuántas vueltas habrá.</td>
+              <td>Necesitas ejecutar al menos una vez.</td>
+            </tr>
+            <tr>
+              <td><strong>¿Dónde se evalúa la condición?</strong></td>
+              <td>Al inicio de cada vuelta.</td>
+              <td>Al inicio de cada vuelta.</td>
+              <td>Al final de cada vuelta.</td>
+            </tr>
+            <tr>
+              <td><strong>Mínimo de ejecuciones</strong></td>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td><strong>Ejemplo típico</strong></td>
+              <td>Pedir 5 notas.</td>
+              <td>Pedir precios hasta escribir 0.</td>
+              <td>Menú de opciones, validar un dato.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          <strong>En resumen:</strong> usa <code>for</code> para una cantidad
+          conocida, <code>while</code> para repetir mientras una condición sea
+          verdadera y <code>do...while</code> para ejecutar primero y comprobar
+          después.
+        </p>
+        <p>
+          <code>break</code> termina el ciclo; <code>continue</code> salta a la
+          siguiente vuelta. Por ahora, recuerda actualizar la condición para
+          evitar ciclos infinitos.
+        </p>
+      </section>
+      <section
+        class="paso"
+        id="paso-7"
+        data-titulo="Crear la carpeta del proyecto"
+        aria-labelledby="t7"
+      >
+        <p class="paso-num">Paso 7 de 19</p>
+        <h2 id="t7">Crear la carpeta del proyecto</h2>
+        <p>
+          Vas a crear la estructura completa antes de escribir código. Así cada
+          archivo tendrá su lugar.
+        </p>
+        <h3>Estructura final</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>Estructura de carpetas</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>ciclos-js/
+├── index.html          ← menú principal
+├── ejemplos.html       ← ejemplos resueltos
+├── ejercicio1.html
+├── ejercicio2.html
+├── ejercicio3.html
+├── ejercicio4.html
+├── ejercicio5.html
+├── ejercicio6.html
+├── ejercicio7.html
+├── ejercicio8.html
+├── reto.html
+└── js/
+    ├── ejemplo-for.js
+    ├── ejemplo-while.js
+    ├── ejemplo-do-while.js
+    ├── ejercicio1.js
+    ├── ejercicio2.js
+    ├── ejercicio3.js
+    ├── ejercicio4.js
+    ├── ejercicio5.js
+    ├── ejercicio6.js
+    ├── ejercicio7.js
+    ├── ejercicio8.js
+    └── reto.js</code></pre>
+        </div>
+        <h3>Pasos en Visual Studio Code</h3>
+        <ol>
+          <li>
+            Crea una carpeta llamada <code>ciclos-js</code> en tu escritorio o
+            en tu carpeta de trabajo.
+          </li>
+          <li>
+            Abre VS Code y elige <strong>Archivo → Abrir carpeta…</strong> y
+            selecciona <code>ciclos-js</code>.
+          </li>
+          <li>
+            Dentro de <code>ciclos-js</code>, crea la subcarpeta
+            <code>js</code> con el ícono «Nueva carpeta» del explorador.
+          </li>
+          <li>
+            Crea los archivos <code>.html</code> en la raíz y los archivos
+            <code>.js</code> dentro de <code>js</code>. Por ahora pueden quedar
+            vacíos.
+          </li>
+        </ol>
+        <p>
+          Si prefieres la terminal (en VS Code:
+          <strong>Terminal → Nueva terminal</strong>), puedes crear las carpetas
+          así:
+        </p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>Terminal</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>mkdir ciclos-js
+cd ciclos-js
+mkdir js</code></pre>
+        </div>
+        <h3>Reglas del proyecto</h3>
+        <ul>
+          <li>
+            Cada página HTML carga su propio archivo <code>.js</code> al final
+            del <code>&lt;body&gt;</code>.
+          </li>
+          <li>
+            No necesitas escribir CSS para resolver los ejercicios de esta guía.
+          </li>
+        </ul>
+        <div class="nota info">
+          <p class="nota-t">Cómo abrir las páginas</p>
+          <p>
+            Abre <code>index.html</code> en el navegador o usa Live Server en VS
+            Code.
+          </p>
+        </div>
+      </section>
+      <section
+        class="paso"
+        id="paso-8"
+        data-titulo="Página de inicio (index.html)"
+        aria-labelledby="t8"
+      >
+        <p class="paso-num">Paso 8 de 19</p>
+        <h2 id="t8">Página de inicio (index.html)</h2>
+        <p>
+          La página de inicio muestra enlaces escritos directamente en el HTML.
+          Así puedes abrir cada ejercicio sin agregar JavaScript adicional al
+          menú.
+        </p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>index.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Ciclos en JavaScript&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Ciclos en JavaScript&lt;/h1&gt;
+    &lt;p&gt;Taller práctico: for, while y do...while&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;seccionEjemplos&quot;&gt;
+      &lt;h2&gt;1. Ejemplos guiados&lt;/h2&gt;
+      &lt;p&gt;&lt;a href=&quot;ejemplos.html&quot;&gt;Abrir los ejemplos de for, while y do...while&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;seccionTaller&quot;&gt;
+      &lt;h2&gt;2. Taller&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;ejercicio1.html&quot;&gt;Ejercicio 1: Sistema de compras en una tienda&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;ejercicio2.html&quot;&gt;Ejercicio 2: Registro de notas de un estudiante&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;ejercicio3.html&quot;&gt;Ejercicio 3: Control de gastos mensuales&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;ejercicio4.html&quot;&gt;Ejercicio 4: Análisis de números ingresados&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;ejercicio5.html&quot;&gt;Ejercicio 5: Sistema de inicio de sesión&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;ejercicio6.html&quot;&gt;Ejercicio 6: Estadísticas de ventas de un negocio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;ejercicio7.html&quot;&gt;Ejercicio 7: Nómina de empleados&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;ejercicio8.html&quot;&gt;Ejercicio 8: Juego de adivinar el número&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;seccionReto&quot;&gt;
+      &lt;h2&gt;3. Reto final&lt;/h2&gt;
+      &lt;p&gt;&lt;a href=&quot;reto.html&quot;&gt;Abrir el reto: cajero automático&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <p>
+          Cada enlace usa el nombre del archivo HTML del ejercicio. Abre
+          <code>index.html</code> y verifica que aparezcan los ocho ejercicios
+          en el menú.
+        </p>
+        <div class="nota ok">
+          <p class="nota-t">Cómo probarlo</p>
+          <p>
+            Selecciona un ejercicio y confirma que se abra la página
+            correspondiente.
+          </p>
+        </div>
+      </section>
+      <section
+        class="paso"
+        id="paso-9"
+        data-titulo="Ejemplos guiados"
+        aria-labelledby="t9"
+      >
+        <p class="paso-num">Paso 9 de 19</p>
+        <h2 id="t9">Ejemplos guiados</h2>
+        <p>
+          Estos ejemplos muestran cómo un formulario activa una función y cómo
+          cada ciclo resuelve una tarea distinta.
+        </p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>ejemplos.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Ejemplos de ciclos&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Ejemplos de ciclos&lt;/h1&gt;
+
+  &lt;form id=&quot;formTabla&quot;&gt;
+    &lt;label for=&quot;numeroTabla&quot;&gt;Número para la tabla:&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;numeroTabla&quot; step=&quot;1&quot; required&gt;
+    &lt;button type=&quot;submit&quot;&gt;Generar tabla&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;ul id=&quot;listaTabla&quot;&gt;&lt;/ul&gt;
+
+  &lt;form id=&quot;formAhorro&quot;&gt;
+    &lt;label for=&quot;ahorroMensual&quot;&gt;Ahorro mensual:&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;ahorroMensual&quot; step=&quot;any&quot; required&gt;
+    &lt;label for=&quot;meta&quot;&gt;Meta de ahorro:&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;meta&quot; step=&quot;any&quot; required&gt;
+    &lt;button type=&quot;submit&quot;&gt;Calcular meses&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;p id=&quot;resultadoAhorro&quot;&gt;&lt;/p&gt;
+
+  &lt;form id=&quot;formDado&quot;&gt;
+    &lt;label for=&quot;objetivo&quot;&gt;Numero del dado que buscas (1 a 6):&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;objetivo&quot; min=&quot;1&quot; max=&quot;6&quot; required&gt;
+    &lt;button type=&quot;submit&quot;&gt;Lanzar dado&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;p id=&quot;resultadoDado&quot;&gt;&lt;/p&gt;
+  &lt;ul id=&quot;listaDado&quot;&gt;&lt;/ul&gt;
+
+  &lt;script src=&quot;js/ejemplo-for.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;js/ejemplo-while.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;js/ejemplo-do-while.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>Ejercicio 1: tabla de multiplicar con for</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejemplo-for.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>let formTabla = document.getElementById(&quot;formTabla&quot;);
+let listaTabla = document.getElementById(&quot;listaTabla&quot;);
+formTabla.addEventListener(&quot;submit&quot;, generarTabla);
+
+function generarTabla(evento) {
+  evento.preventDefault();
+  let numero = parseInt(document.getElementById(&quot;numeroTabla&quot;).value, 10);
+  listaTabla.innerHTML = &quot;&quot;;
+
+  for (let i = 1; i &lt;= 10; i++) {
+    let fila = document.createElement(&quot;li&quot;);
+    fila.textContent = numero + &quot; x &quot; + i + &quot; = &quot; + numero * i;
+    listaTabla.appendChild(fila);
+  }
+}</code></pre>
+        </div>
+        <h3>Ejercicio 2: meta de ahorro con while</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejemplo-while.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>let formAhorro = document.getElementById(&quot;formAhorro&quot;);
+let resultadoAhorro = document.getElementById(&quot;resultadoAhorro&quot;);
+formAhorro.addEventListener(&quot;submit&quot;, calcularAhorro);
+
+function calcularAhorro(evento) {
+  evento.preventDefault();
+  let ahorro = parseFloat(document.getElementById(&quot;ahorroMensual&quot;).value);
+  let valorMeta = parseFloat(document.getElementById(&quot;meta&quot;).value);
+  let acumulado = 0;
+  let meses = 0;
+
+  if (ahorro &lt;= 0 || valorMeta &lt;= 0) {
+    resultadoAhorro.textContent = &quot;Ingresa valores mayores que cero.&quot;;
+    return;
+  }
+
+  while (acumulado &lt; valorMeta) {
+    acumulado += ahorro;
+    meses++;
+  }
+  resultadoAhorro.textContent = &quot;Necesitas &quot; + meses + &quot; meses para alcanzar la meta.&quot;;
+}</code></pre>
+        </div>
+        <h3>Ejercicio 3: lanzamiento de dado con do...while</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejemplo-do-while.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>let formDado = document.getElementById(&quot;formDado&quot;);
+let resultadoDado = document.getElementById(&quot;resultadoDado&quot;);
+let listaDado = document.getElementById(&quot;listaDado&quot;);
+formDado.addEventListener(&quot;submit&quot;, lanzarDado);
+
+function lanzarDado(evento) {
+  evento.preventDefault();
+  let numeroBuscado = parseInt(document.getElementById(&quot;objetivo&quot;).value, 10);
+  let dado;
+  let lanzamientos = 0;
+  listaDado.innerHTML = &quot;&quot;;
+
+  do {
+    dado = Math.floor(Math.random() * 6) + 1;
+    lanzamientos++;
+    let fila = document.createElement(&quot;li&quot;);
+    fila.textContent = &quot;Lanzamiento &quot; + lanzamientos + &quot;: salió &quot; + dado;
+    listaDado.appendChild(fila);
+  } while (dado !== numeroBuscado);
+
+  resultadoDado.textContent = &quot;Salió el número buscado en &quot; + lanzamientos + &quot; lanzamiento(s).&quot;;
+}</code></pre>
+        </div>
+        <p>
+          La tabla usa <code>for</code> porque siempre tiene 10 filas; el ahorro
+          usa <code>while</code> porque depende de cuándo se alcanza la meta; el
+          dado usa <code>do...while</code> porque se lanza al menos una vez.
+        </p>
+      </section>
+      <section
+        class="paso"
+        id="paso-10"
+        data-titulo="Ejercicio 1 · Sistema de compras en una tienda"
+        aria-labelledby="t10"
+      >
+        <p class="paso-num">Paso 10 de 19</p>
+        <h2 id="t10">Ejercicio 1 · Sistema de compras en una tienda</h2>
+        <p class="etiquetas">Ciclo while · Acumuladores · Condicionales</p>
+        <p>
+          Una tienda necesita calcular el valor total de las compras de un
+          cliente. Ingresa los precios separados por comas y termina la lista
+          con 0.
+        </p>
+        <h3>Requisitos</h3>
+        <ul>
+          <li>Solicitar el precio de cada producto.</li>
+          <li>Validar que el precio no sea negativo.</li>
+          <li>Acumular el valor de los productos válidos.</li>
+          <li>Contar cuántos productos se registraron.</li>
+          <li>
+            Si la compra supera los $200.000, aplicar un descuento del 10 %.
+          </li>
+          <li>
+            Al finalizar, mostrar el subtotal, el descuento, el total a pagar y
+            la cantidad de productos.
+          </li>
+        </ul>
+        <h3>1. HTML (cópialo tal cual)</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>ejercicio1.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Ejercicio 1 · Sistema de compras en una tienda&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href=&quot;index.html&quot;&gt;← Volver al menú&lt;/a&gt;
+    &lt;h1&gt;Ejercicio 1: Sistema de compras en una tienda&lt;/h1&gt;
+    &lt;p id=&quot;etiquetas&quot;&gt;Ciclo while · Acumuladores · Condicionales&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;enunciado&quot;&gt;
+      &lt;h2&gt;Enunciado&lt;/h2&gt;
+      &lt;p&gt;Una tienda necesita calcular el valor total de las compras de un cliente. Ingresa los precios separados por comas y termina la lista con 0.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Solicitar el precio de cada producto.&lt;/li&gt;
+        &lt;li&gt;Validar que el precio no sea negativo.&lt;/li&gt;
+        &lt;li&gt;Acumular el valor de los productos válidos.&lt;/li&gt;
+        &lt;li&gt;Contar cuántos productos se registraron.&lt;/li&gt;
+        &lt;li&gt;Si la compra supera los $200.000, aplicar un descuento del 10 %.&lt;/li&gt;
+        &lt;li&gt;Al finalizar, mostrar el subtotal, el descuento, el total a pagar y la cantidad de productos.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;controles&quot;&gt;
+      &lt;form id=&quot;formulario&quot;&gt;
+        &lt;label for=&quot;precios&quot;&gt;Precios separados por comas; termina con 0:&lt;/label&gt;
+        &lt;textarea id=&quot;precios&quot; rows=&quot;3&quot; placeholder=&quot;50000, 120000, 0&quot; required&gt;&lt;/textarea&gt;
+        &lt;button type=&quot;submit&quot;&gt;Registrar compra&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;resultado&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h2&gt;Resultados&lt;/h2&gt;
+      &lt;p id=&quot;mensaje&quot;&gt;Aún no hay datos. Presiona el botón para comenzar.&lt;/p&gt;
+      &lt;p&gt;Cantidad de productos: &lt;strong id=&quot;cantidad&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Subtotal: &lt;strong id=&quot;subtotal&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Descuento: &lt;strong id=&quot;descuento&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Total a pagar: &lt;strong id=&quot;total&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/ejercicio1.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>2. Solución en JavaScript</h3>
+        <p>Transcribe esta solución en el archivo JavaScript del ejercicio.</p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejercicio1.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>// ejercicio1.js — Sistema de compras en una tienda
+
+// 1. Referencias a los elementos del HTML
+let formulario = document.getElementById(&quot;formulario&quot;);
+let mensaje = document.getElementById(&quot;mensaje&quot;);
+let cantidadTexto = document.getElementById(&quot;cantidad&quot;);
+let subtotalTexto = document.getElementById(&quot;subtotal&quot;);
+let descuentoTexto = document.getElementById(&quot;descuento&quot;);
+let totalTexto = document.getElementById(&quot;total&quot;);
+
+
+// 3. Lógica
+formulario.addEventListener(&quot;submit&quot;, procesarFormulario);
+
+function procesarFormulario(evento) {
+  evento.preventDefault();
+  let precios = document.getElementById(&quot;precios&quot;).value.split(&quot;,&quot;);
+  let subtotal = 0;
+  let cantidad = 0;
+  let posicion = 0;
+  let precio = parseFloat(precios[posicion].trim());
+  let huboInvalido = false;
+
+  while (posicion &lt; precios.length &amp;&amp; precio !== 0) {
+    if (Number.isNaN(precio) || precio &lt; 0) {
+      huboInvalido = true;
+    } else {
+      subtotal += precio;
+      cantidad++;
+    }
+
+    posicion++;
+    if (posicion &lt; precios.length) {
+      precio = parseFloat(precios[posicion].trim());
+    }
+  }
+
+  let descuento = subtotal &gt; 200000 ? subtotal * 0.1 : 0;
+  let total = subtotal - descuento;
+  cantidadTexto.textContent = cantidad;
+  subtotalTexto.textContent = &quot;$&quot; + subtotal.toLocaleString(&quot;es-CO&quot;);
+  descuentoTexto.textContent = &quot;$&quot; + descuento.toLocaleString(&quot;es-CO&quot;);
+  totalTexto.textContent = &quot;$&quot; + total.toLocaleString(&quot;es-CO&quot;);
+
+  if (cantidad === 0) {
+    mensaje.textContent = &quot;No se registraron productos.&quot;;
+  } else if (subtotal &gt; 200000) {
+    mensaje.textContent = &quot;Se aplicó un descuento del 10 %.&quot;;
+  } else {
+    mensaje.textContent = &quot;Compra calculada.&quot;;
+  }
+  if (huboInvalido) {
+    mensaje.textContent += &quot; Se omitieron los precios inválidos o negativos.&quot;;
+  }
+}</code></pre>
+        </div>
+        <h3>3. Resultados</h3>
+        <p>
+          Muestra los datos con <code>textContent</code> o agrega filas a la
+          lista con <code>createElement()</code> y <code>appendChild()</code>.
+        </p>
+        <h3>4. Casos de prueba</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Datos que escribes</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>50000, −2000, 120000, 80000, 0</td>
+              <td>
+                El −2000 se rechaza. Productos: 3 · Subtotal: $250.000 ·
+                Descuento: $25.000 · Total: $225.000
+              </td>
+            </tr>
+            <tr>
+              <td>30000, 45000, 0</td>
+              <td>
+                Productos: 2 · Subtotal: $75.000 · Descuento: $0 · Total:
+                $75.000
+              </td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>Mensaje: no se registró ningún producto.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section
+        class="paso"
+        id="paso-11"
+        data-titulo="Ejercicio 2 · Registro de notas de un estudiante"
+        aria-labelledby="t11"
+      >
+        <p class="paso-num">Paso 11 de 19</p>
+        <h2 id="t11">Ejercicio 2 · Registro de notas de un estudiante</h2>
+        <p class="etiquetas">Ciclo for · Promedios · Condiciones</p>
+        <p>
+          Una institución educativa necesita calcular el rendimiento de un
+          estudiante a partir de cinco calificaciones.
+        </p>
+        <h3>Requisitos</h3>
+        <ul>
+          <li>Solicitar cinco notas entre 0 y 5.</li>
+          <li>Validar que cada nota esté dentro del rango permitido.</li>
+          <li>Calcular el promedio de las notas válidas.</li>
+          <li>Contar cuántas notas son iguales o superiores a 3.</li>
+          <li>Identificar la nota más alta y la más baja.</li>
+          <li>
+            Mostrar el promedio y determinar si el estudiante aprobó (promedio
+            mayor o igual a 3) o reprobó.
+          </li>
+        </ul>
+        <h3>1. HTML (cópialo tal cual)</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>ejercicio2.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Ejercicio 2 · Registro de notas de un estudiante&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href=&quot;index.html&quot;&gt;← Volver al menú&lt;/a&gt;
+    &lt;h1&gt;Ejercicio 2: Registro de notas de un estudiante&lt;/h1&gt;
+    &lt;p id=&quot;etiquetas&quot;&gt;Ciclo for · Promedios · Condiciones&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;enunciado&quot;&gt;
+      &lt;h2&gt;Enunciado&lt;/h2&gt;
+      &lt;p&gt;Una institución educativa necesita calcular el rendimiento de un estudiante a partir de cinco calificaciones.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Solicitar cinco notas entre 0 y 5.&lt;/li&gt;
+        &lt;li&gt;Validar que cada nota esté dentro del rango permitido.&lt;/li&gt;
+        &lt;li&gt;Calcular el promedio de las notas válidas.&lt;/li&gt;
+        &lt;li&gt;Contar cuántas notas son iguales o superiores a 3.&lt;/li&gt;
+        &lt;li&gt;Identificar la nota más alta y la más baja.&lt;/li&gt;
+        &lt;li&gt;Mostrar el promedio y determinar si el estudiante aprobó (promedio mayor o igual a 3) o reprobó.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;controles&quot;&gt;
+      &lt;form id=&quot;formulario&quot;&gt;
+        &lt;label for=&quot;nota1&quot;&gt;Nota 1:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;nota1&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;nota2&quot;&gt;Nota 2:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;nota2&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;nota3&quot;&gt;Nota 3:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;nota3&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;nota4&quot;&gt;Nota 4:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;nota4&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;nota5&quot;&gt;Nota 5:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;nota5&quot; step=&quot;any&quot; required&gt;
+        &lt;button type=&quot;submit&quot;&gt;Ingresar notas&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;resultado&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h2&gt;Resultados&lt;/h2&gt;
+      &lt;p id=&quot;mensaje&quot;&gt;Aún no hay datos. Presiona el botón para comenzar.&lt;/p&gt;
+      &lt;ul id=&quot;listaNotas&quot;&gt;&lt;/ul&gt;
+      &lt;p&gt;Promedio: &lt;strong id=&quot;promedio&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Notas iguales o superiores a 3: &lt;strong id=&quot;notasAltas&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Nota más alta: &lt;strong id=&quot;notaMayor&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Nota más baja: &lt;strong id=&quot;notaMenor&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/ejercicio2.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>2. Solución en JavaScript</h3>
+        <p>Transcribe esta solución en el archivo JavaScript del ejercicio.</p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejercicio2.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>// ejercicio2.js — Registro de notas de un estudiante
+
+// 1. Referencias
+let formulario = document.getElementById(&quot;formulario&quot;);
+let mensaje = document.getElementById(&quot;mensaje&quot;);
+let listaNotas = document.getElementById(&quot;listaNotas&quot;);
+let promedioTexto = document.getElementById(&quot;promedio&quot;);
+let notasAltasTexto = document.getElementById(&quot;notasAltas&quot;);
+let notaMayorTexto = document.getElementById(&quot;notaMayor&quot;);
+let notaMenorTexto = document.getElementById(&quot;notaMenor&quot;);
+
+
+// 3. Lógica
+formulario.addEventListener(&quot;submit&quot;, procesarFormulario);
+
+function procesarFormulario(evento) {
+  evento.preventDefault();
+  let suma = 0;
+  let cantidadValidas = 0;
+  let notasAltas = 0;
+  let mayor = -1;
+  let menor = 6;
+  listaNotas.innerHTML = &quot;&quot;;
+
+  for (let i = 1; i &lt;= 5; i++) {
+    let nota = parseFloat(document.getElementById(&quot;nota&quot; + i).value);
+    let fila = document.createElement(&quot;li&quot;);
+    fila.textContent = &quot;Nota &quot; + i + &quot;: &quot; + nota;
+
+    if (Number.isNaN(nota) || nota &lt; 0 || nota &gt; 5) {
+      fila.textContent += &quot; (inválida)&quot;;
+    } else {
+      suma += nota;
+      cantidadValidas++;
+      if (nota &gt;= 3) {
+        notasAltas++;
+      }
+      if (nota &gt; mayor) {
+        mayor = nota;
+      }
+      if (nota &lt; menor) {
+        menor = nota;
+      }
+    }
+
+    listaNotas.appendChild(fila);
+  }
+
+  if (cantidadValidas === 0) {
+    mensaje.textContent = &quot;No se ingresaron notas válidas.&quot;;
+    promedioTexto.textContent = &quot;—&quot;;
+    notasAltasTexto.textContent = &quot;—&quot;;
+    notaMayorTexto.textContent = &quot;—&quot;;
+    notaMenorTexto.textContent = &quot;—&quot;;
+    return;
+  }
+
+  let promedio = suma / cantidadValidas;
+  promedioTexto.textContent = promedio.toFixed(2);
+  notasAltasTexto.textContent = notasAltas;
+  notaMayorTexto.textContent = mayor;
+  notaMenorTexto.textContent = menor;
+  mensaje.textContent = promedio &gt;= 3 ? &quot;Aprobó.&quot; : &quot;Reprobó.&quot;;
+}</code></pre>
+        </div>
+        <h3>3. Resultados</h3>
+        <p>
+          Muestra los datos con <code>textContent</code> o agrega filas a la
+          lista con <code>createElement()</code> y <code>appendChild()</code>.
+        </p>
+        <h3>4. Casos de prueba</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Datos que escribes</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>4.5, 2.5, 6, 3, 4</td>
+              <td>
+                El 6 se descarta. Promedio: 3.50 · Notas ≥ 3: 3 · Más alta: 4.5
+                · Más baja: 2.5 · Aprobó
+              </td>
+            </tr>
+            <tr>
+              <td>2, 1.5, 3, 2.5, 2</td>
+              <td>
+                Promedio: 2.20 · Notas ≥ 3: 1 · Más alta: 3 · Más baja: 1.5 ·
+                Reprobó
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section
+        class="paso"
+        id="paso-12"
+        data-titulo="Ejercicio 3 · Control de gastos mensuales"
+        aria-labelledby="t12"
+      >
+        <p class="paso-num">Paso 12 de 19</p>
+        <h2 id="t12">Ejercicio 3 · Control de gastos mensuales</h2>
+        <p class="etiquetas">Ciclo while · Acumuladores · Clasificación</p>
+        <p>
+          Una persona quiere llevar el control de sus gastos. Ingresa el
+          presupuesto y los gastos separados por comas; el último gasto debe ser
+          0.
+        </p>
+        <h3>Requisitos</h3>
+        <ul>
+          <li>Registrar los gastos uno por uno.</li>
+          <li>Rechazar los valores negativos.</li>
+          <li>Calcular el total gastado y el dinero restante.</li>
+          <li>Contar cuántos gastos superan los $50.000.</li>
+          <li>
+            Informar si la persona se mantuvo dentro del presupuesto o lo
+            excedió.
+          </li>
+          <li>Si supera el presupuesto, mostrar cuánto dinero le faltó.</li>
+        </ul>
+        <h3>1. HTML (cópialo tal cual)</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>ejercicio3.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Ejercicio 3 · Control de gastos mensuales&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href=&quot;index.html&quot;&gt;← Volver al menú&lt;/a&gt;
+    &lt;h1&gt;Ejercicio 3: Control de gastos mensuales&lt;/h1&gt;
+    &lt;p id=&quot;etiquetas&quot;&gt;Ciclo while · Acumuladores · Clasificación&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;enunciado&quot;&gt;
+      &lt;h2&gt;Enunciado&lt;/h2&gt;
+      &lt;p&gt;Una persona quiere llevar el control de sus gastos. Ingresa el presupuesto y los gastos separados por comas; el último gasto debe ser 0.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Registrar los gastos uno por uno.&lt;/li&gt;
+        &lt;li&gt;Rechazar los valores negativos.&lt;/li&gt;
+        &lt;li&gt;Calcular el total gastado y el dinero restante.&lt;/li&gt;
+        &lt;li&gt;Contar cuántos gastos superan los $50.000.&lt;/li&gt;
+        &lt;li&gt;Informar si la persona se mantuvo dentro del presupuesto o lo excedió.&lt;/li&gt;
+        &lt;li&gt;Si supera el presupuesto, mostrar cuánto dinero le faltó.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;controles&quot;&gt;
+      &lt;form id=&quot;formulario&quot;&gt;
+        &lt;label for=&quot;presupuestoEntrada&quot;&gt;Presupuesto disponible:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;presupuestoEntrada&quot; min=&quot;0&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;gastosEntrada&quot;&gt;Gastos separados por comas; termina con 0:&lt;/label&gt;
+        &lt;textarea id=&quot;gastosEntrada&quot; rows=&quot;3&quot; placeholder=&quot;120000, 60000, 0&quot; required&gt;&lt;/textarea&gt;
+        &lt;button type=&quot;submit&quot;&gt;Registrar gastos&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;resultado&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h2&gt;Resultados&lt;/h2&gt;
+      &lt;p id=&quot;mensaje&quot;&gt;Aún no hay datos. Presiona el botón para comenzar.&lt;/p&gt;
+      &lt;p&gt;Presupuesto: &lt;strong id=&quot;presupuesto&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Total gastado: &lt;strong id=&quot;totalGastado&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Dinero restante: &lt;strong id=&quot;restante&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Gastos mayores a $50.000: &lt;strong id=&quot;gastosAltos&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/ejercicio3.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>2. Solución en JavaScript</h3>
+        <p>Transcribe esta solución en el archivo JavaScript del ejercicio.</p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejercicio3.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>// ejercicio3.js — Control de gastos mensuales
+
+// 1. Referencias
+let formulario = document.getElementById(&quot;formulario&quot;);
+let mensaje = document.getElementById(&quot;mensaje&quot;);
+let presupuestoTexto = document.getElementById(&quot;presupuesto&quot;);
+let totalGastadoTexto = document.getElementById(&quot;totalGastado&quot;);
+let restanteTexto = document.getElementById(&quot;restante&quot;);
+let gastosAltosTexto = document.getElementById(&quot;gastosAltos&quot;);
+
+
+// 3. Lógica
+formulario.addEventListener(&quot;submit&quot;, procesarFormulario);
+
+function procesarFormulario(evento) {
+  evento.preventDefault();
+  let presupuesto = parseFloat(document.getElementById(&quot;presupuestoEntrada&quot;).value);
+  let gastos = document.getElementById(&quot;gastosEntrada&quot;).value.split(&quot;,&quot;);
+  let totalGastado = 0;
+  let gastosAltos = 0;
+  let posicion = 0;
+  let gasto = parseFloat(gastos[posicion].trim());
+  let huboInvalido = false;
+
+  while (posicion &lt; gastos.length &amp;&amp; gasto !== 0) {
+    if (Number.isNaN(gasto) || gasto &lt; 0) {
+      huboInvalido = true;
+    } else {
+      totalGastado += gasto;
+      if (gasto &gt; 50000) {
+        gastosAltos++;
+      }
+    }
+
+    posicion++;
+    if (posicion &lt; gastos.length) {
+      gasto = parseFloat(gastos[posicion].trim());
+    }
+  }
+
+  let restante = presupuesto - totalGastado;
+  presupuestoTexto.textContent = &quot;$&quot; + presupuesto.toLocaleString(&quot;es-CO&quot;);
+  totalGastadoTexto.textContent = &quot;$&quot; + totalGastado.toLocaleString(&quot;es-CO&quot;);
+  restanteTexto.textContent = restante &lt; 0
+    ? &quot;-$&quot; + Math.abs(restante).toLocaleString(&quot;es-CO&quot;)
+    : &quot;$&quot; + restante.toLocaleString(&quot;es-CO&quot;);
+  gastosAltosTexto.textContent = gastosAltos;
+
+  if (restante &lt; 0) {
+    mensaje.textContent = &quot;Excediste el presupuesto por $&quot; + Math.abs(restante).toLocaleString(&quot;es-CO&quot;) + &quot;.&quot;;
+  } else {
+    mensaje.textContent = &quot;Te mantuviste dentro del presupuesto.&quot;;
+  }
+  if (huboInvalido) {
+    mensaje.textContent += &quot; Se omitieron datos inválidos o negativos.&quot;;
+  }
+}</code></pre>
+        </div>
+        <h3>3. Resultados</h3>
+        <p>
+          Muestra los datos en los elementos indicados con
+          <code>textContent</code> o agrega filas con
+          <code>createElement()</code> y <code>appendChild()</code>.
+        </p>
+        <h3>4. Casos de prueba</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Datos que escribes</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Presupuesto 500000; gastos 120000, 60000, −5000, 45000, 300000,
+                0
+              </td>
+              <td>
+                El −5000 se rechaza. Total gastado: $525.000 · Restante:
+                −$25.000 · Gastos > $50.000: 3 · Excedió el presupuesto, le
+                faltaron $25.000
+              </td>
+            </tr>
+            <tr>
+              <td>Presupuesto 200000; gastos 30000, 70000, 0</td>
+              <td>
+                Total gastado: $100.000 · Restante: $100.000 · Gastos > $50.000:
+                1 · Dentro del presupuesto
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section
+        class="paso"
+        id="paso-13"
+        data-titulo="Ejercicio 4 · Análisis de números ingresados"
+        aria-labelledby="t13"
+      >
+        <p class="paso-num">Paso 13 de 19</p>
+        <h2 id="t13">Ejercicio 4 · Análisis de números ingresados</h2>
+        <p class="etiquetas">Ciclo do...while · Módulo % · Contadores</p>
+        <p>
+          Ingresa números enteros positivos separados por comas y termina la
+          lista con -1.
+        </p>
+        <h3>Requisitos</h3>
+        <ul>
+          <li>Identificar cuáles números son pares y cuáles son impares.</li>
+          <li>Contar cuántos números son múltiplos de 3.</li>
+          <li>Sumar por separado los números pares y los impares.</li>
+          <li>Encontrar el mayor número ingresado.</li>
+          <li>
+            Al finalizar, mostrar las estadísticas calculadas, sin incluir el -1
+            en los resultados.
+          </li>
+        </ul>
+        <div class="nota info">
+          <p class="nota-t">Ten en cuenta</p>
+          <p>
+            debes controlar qué ocurre si el usuario termina el programa sin
+            registrar ningún número válido.
+          </p>
+        </div>
+        <h3>1. HTML (cópialo tal cual)</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>ejercicio4.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Ejercicio 4 · Análisis de números ingresados&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href=&quot;index.html&quot;&gt;← Volver al menú&lt;/a&gt;
+    &lt;h1&gt;Ejercicio 4: Análisis de números ingresados&lt;/h1&gt;
+    &lt;p id=&quot;etiquetas&quot;&gt;Ciclo do...while · Módulo % · Contadores&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;enunciado&quot;&gt;
+      &lt;h2&gt;Enunciado&lt;/h2&gt;
+      &lt;p&gt;Ingresa números enteros positivos separados por comas y termina la lista con -1.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Identificar cuáles números son pares y cuáles son impares.&lt;/li&gt;
+        &lt;li&gt;Contar cuántos números son múltiplos de 3.&lt;/li&gt;
+        &lt;li&gt;Sumar por separado los números pares y los impares.&lt;/li&gt;
+        &lt;li&gt;Encontrar el mayor número ingresado.&lt;/li&gt;
+        &lt;li&gt;Al finalizar, mostrar las estadísticas calculadas, sin incluir el -1 en los resultados.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;&lt;strong&gt;Ten en cuenta:&lt;/strong&gt; debes controlar qué ocurre si el usuario termina el programa sin registrar ningún número válido.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;controles&quot;&gt;
+      &lt;form id=&quot;formulario&quot;&gt;
+        &lt;label for=&quot;numerosEntrada&quot;&gt;Números enteros separados por comas; termina con -1:&lt;/label&gt;
+        &lt;textarea id=&quot;numerosEntrada&quot; rows=&quot;3&quot; placeholder=&quot;6, 9, 4, -1&quot; required&gt;&lt;/textarea&gt;
+        &lt;button type=&quot;submit&quot;&gt;Ingresar números&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;resultado&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h2&gt;Resultados&lt;/h2&gt;
+      &lt;p id=&quot;mensaje&quot;&gt;Aún no hay datos. Presiona el botón para comenzar.&lt;/p&gt;
+      &lt;p&gt;Cantidad de pares: &lt;strong id=&quot;pares&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Suma de pares: &lt;strong id=&quot;sumaPares&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Cantidad de impares: &lt;strong id=&quot;impares&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Suma de impares: &lt;strong id=&quot;sumaImpares&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Múltiplos de 3: &lt;strong id=&quot;multiplos3&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Número mayor: &lt;strong id=&quot;mayor&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/ejercicio4.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>2. Solución en JavaScript</h3>
+        <p>Transcribe esta solución en el archivo JavaScript del ejercicio.</p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejercicio4.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>// ejercicio4.js — Análisis de números ingresados
+
+// 1. Referencias
+let formulario = document.getElementById(&quot;formulario&quot;);
+let mensaje = document.getElementById(&quot;mensaje&quot;);
+let paresTexto = document.getElementById(&quot;pares&quot;);
+let sumaParesTexto = document.getElementById(&quot;sumaPares&quot;);
+let imparesTexto = document.getElementById(&quot;impares&quot;);
+let sumaImparesTexto = document.getElementById(&quot;sumaImpares&quot;);
+let multiplos3Texto = document.getElementById(&quot;multiplos3&quot;);
+let mayorTexto = document.getElementById(&quot;mayor&quot;);
+
+
+// 3. Lógica
+formulario.addEventListener(&quot;submit&quot;, procesarFormulario);
+
+function procesarFormulario(evento) {
+  evento.preventDefault();
+  let numeros = document.getElementById(&quot;numerosEntrada&quot;).value.split(&quot;,&quot;);
+  let cantidadPares = 0;
+  let sumaPares = 0;
+  let cantidadImpares = 0;
+  let sumaImpares = 0;
+  let multiplos3 = 0;
+  let mayor = 0;
+  let cantidadValidos = 0;
+  let huboInvalido = false;
+  let posicion = 0;
+  let numeroTexto = numeros[posicion].trim();
+  let numero = parseInt(numeroTexto, 10);
+
+  do {
+    if (numero !== -1) {
+      if (Number.isNaN(numero) || !Number.isInteger(Number(numeroTexto)) || numero &lt;= 0) {
+        huboInvalido = true;
+      } else {
+        cantidadValidos++;
+        if (numero % 2 === 0) {
+          cantidadPares++;
+          sumaPares += numero;
+        } else {
+          cantidadImpares++;
+          sumaImpares += numero;
+        }
+        if (numero % 3 === 0) {
+          multiplos3++;
+        }
+        if (numero &gt; mayor) {
+          mayor = numero;
+        }
+      }
+    }
+
+    posicion++;
+    if (posicion &lt; numeros.length) {
+      numeroTexto = numeros[posicion].trim();
+      numero = parseInt(numeroTexto, 10);
+    }
+  } while (posicion &lt; numeros.length &amp;&amp; numero !== -1);
+
+  if (cantidadValidos === 0) {
+    mensaje.textContent = &quot;No se registraron números válidos.&quot;;
+  } else {
+    mensaje.textContent = huboInvalido ? &quot;Se omitieron los valores inválidos.&quot; : &quot;Análisis completado.&quot;;
+    paresTexto.textContent = cantidadPares;
+    sumaParesTexto.textContent = sumaPares;
+    imparesTexto.textContent = cantidadImpares;
+    sumaImparesTexto.textContent = sumaImpares;
+    multiplos3Texto.textContent = multiplos3;
+    mayorTexto.textContent = mayor;
+  }
+}</code></pre>
+        </div>
+        <h3>3. Resultados</h3>
+        <p>
+          Muestra los datos con <code>textContent</code> o agrega filas a la
+          lista con <code>createElement()</code> y <code>appendChild()</code>.
+        </p>
+        <h3>4. Casos de prueba</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Datos que escribes</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>6, 9, 4, 15, −5, 3.5, −1</td>
+              <td>
+                −5 y 3.5 se rechazan. Pares: 2 (suma 10) · Impares: 2 (suma 24)
+                · Múltiplos de 3: 3 · Mayor: 15
+              </td>
+            </tr>
+            <tr>
+              <td>−1</td>
+              <td>Mensaje: no se registró ningún número válido.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section
+        class="paso"
+        id="paso-14"
+        data-titulo="Ejercicio 5 · Sistema de inicio de sesión"
+        aria-labelledby="t14"
+      >
+        <p class="paso-num">Paso 14 de 19</p>
+        <h2 id="t14">Ejercicio 5 · Sistema de inicio de sesión</h2>
+        <p class="etiquetas">
+          Ciclo while · Contadores · Condiciones compuestas
+        </p>
+        <p>
+          Simular un sistema de inicio de sesión que permita al usuario ingresar
+          una contraseña. La contraseña correcta estará almacenada en una
+          variable.
+        </p>
+        <h3>Requisitos</h3>
+        <ul>
+          <li>Permitir un máximo de tres intentos.</li>
+          <li>
+            Mostrar un mensaje diferente cuando la contraseña sea correcta o
+            incorrecta.
+          </li>
+          <li>Contar los intentos realizados.</li>
+          <li>Bloquear el acceso cuando se agoten los intentos.</li>
+          <li>
+            Si el usuario inicia sesión correctamente, mostrar un mensaje de
+            bienvenida y finalizar los intentos.
+          </li>
+          <li>Informar cuántos intentos utilizó para ingresar.</li>
+        </ul>
+        <div class="nota info">
+          <p class="nota-t">Restricción</p>
+          <p>
+            no uses arreglos. Trabaja con variables, condiciones y ciclos dentro
+            de la funcion solicitada.
+          </p>
+        </div>
+        <h3>1. HTML (cópialo tal cual)</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>ejercicio5.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Ejercicio 5 · Sistema de inicio de sesión&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href=&quot;index.html&quot;&gt;← Volver al menú&lt;/a&gt;
+    &lt;h1&gt;Ejercicio 5: Sistema de inicio de sesión&lt;/h1&gt;
+    &lt;p id=&quot;etiquetas&quot;&gt;Ciclo while · Contadores · Condiciones compuestas&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;enunciado&quot;&gt;
+      &lt;h2&gt;Enunciado&lt;/h2&gt;
+      &lt;p&gt;Simular un sistema de inicio de sesión que permita al usuario ingresar una contraseña. La contraseña correcta estará almacenada en una variable.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Permitir un máximo de tres intentos.&lt;/li&gt;
+        &lt;li&gt;Mostrar un mensaje diferente cuando la contraseña sea correcta o incorrecta.&lt;/li&gt;
+        &lt;li&gt;Contar los intentos realizados.&lt;/li&gt;
+        &lt;li&gt;Bloquear el acceso cuando se agoten los intentos.&lt;/li&gt;
+        &lt;li&gt;Si el usuario inicia sesión correctamente, mostrar un mensaje de bienvenida y finalizar los intentos.&lt;/li&gt;
+        &lt;li&gt;Informar cuántos intentos utilizó para ingresar.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;&lt;strong&gt;Restricción:&lt;/strong&gt; no uses arreglos. Ingresa hasta tres contraseñas en los campos del formulario y trabaja con variables, condiciones y ciclos.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;controles&quot;&gt;
+      &lt;form id=&quot;formulario&quot;&gt;
+        &lt;label for=&quot;contrasena1&quot;&gt;Intento 1:&lt;/label&gt;
+        &lt;input type=&quot;password&quot; id=&quot;contrasena1&quot; required&gt;
+        &lt;label for=&quot;contrasena2&quot;&gt;Intento 2:&lt;/label&gt;
+        &lt;input type=&quot;password&quot; id=&quot;contrasena2&quot;&gt;
+        &lt;label for=&quot;contrasena3&quot;&gt;Intento 3:&lt;/label&gt;
+        &lt;input type=&quot;password&quot; id=&quot;contrasena3&quot;&gt;
+        &lt;button type=&quot;submit&quot;&gt;Iniciar sesión&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;resultado&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h2&gt;Resultados&lt;/h2&gt;
+      &lt;p id=&quot;mensaje&quot;&gt;Aún no hay datos. Presiona el botón para comenzar.&lt;/p&gt;
+      &lt;ul id=&quot;registro&quot;&gt;&lt;/ul&gt;
+      &lt;p&gt;Intentos utilizados: &lt;strong id=&quot;intentos&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/ejercicio5.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>2. Solución en JavaScript</h3>
+        <p>Transcribe esta solución en el archivo JavaScript del ejercicio.</p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejercicio5.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>// ejercicio5.js — Sistema de inicio de sesión
+
+// 1. Referencias
+let formulario = document.getElementById(&quot;formulario&quot;);
+let mensaje = document.getElementById(&quot;mensaje&quot;);
+let intentosTexto = document.getElementById(&quot;intentos&quot;);
+let registro = document.getElementById(&quot;registro&quot;);
+
+
+// 3. Lógica
+formulario.addEventListener(&quot;submit&quot;, procesarFormulario);
+
+function procesarFormulario(evento) {
+  evento.preventDefault();
+  let contrasenaCorrecta = &quot;Sena2026&quot;;
+  let intentos = 0;
+  let maxIntentos = 3;
+  let accesoConcedido = false;
+  registro.innerHTML = &quot;&quot;;
+
+  while (intentos &lt; maxIntentos &amp;&amp; accesoConcedido === false) {
+    let contrasenaIngresada = document.getElementById(&quot;contrasena&quot; + (intentos + 1)).value;
+    intentos++;
+
+    let fila = document.createElement(&quot;li&quot;);
+    if (contrasenaIngresada === contrasenaCorrecta) {
+      accesoConcedido = true;
+      fila.textContent = &quot;Intento &quot; + intentos + &quot;: correcta&quot;;
+    } else {
+      fila.textContent = &quot;Intento &quot; + intentos + &quot;: incorrecta&quot;;
+    }
+    registro.appendChild(fila);
+  }
+
+  intentosTexto.textContent = intentos;
+  mensaje.textContent = accesoConcedido
+    ? &quot;Bienvenido. Acceso concedido.&quot;
+    : &quot;Acceso bloqueado. Se agotaron los intentos.&quot;;
+}</code></pre>
+        </div>
+        <h3>3. Resultados</h3>
+        <p>
+          Muestra los datos con <code>textContent</code> o agrega filas a la
+          lista con <code>createElement()</code> y <code>appendChild()</code>.
+        </p>
+        <h3>4. Casos de prueba</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Datos que escribes</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>hola, Sena2026</td>
+              <td>
+                Intento 1 incorrecto, intento 2 correcto. Bienvenida · Intentos
+                utilizados: 2
+              </td>
+            </tr>
+            <tr>
+              <td>abc, 123, sena2026</td>
+              <td>
+                Tres intentos incorrectos (las mayúsculas cuentan). Acceso
+                bloqueado
+              </td>
+            </tr>
+            <tr>
+              <td>Sena2026</td>
+              <td>Bienvenida en el primer intento · Intentos utilizados: 1</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section
+        class="paso"
+        id="paso-15"
+        data-titulo="Ejercicio 6 · Estadísticas de ventas de un negocio"
+        aria-labelledby="t15"
+      >
+        <p class="paso-num">Paso 15 de 19</p>
+        <h2 id="t15">Ejercicio 6 · Estadísticas de ventas de un negocio</h2>
+        <p class="etiquetas">Ciclo for · Acumuladores · Condiciones anidadas</p>
+        <p>
+          Un negocio desea analizar las ventas realizadas durante siete días
+          consecutivos.
+        </p>
+        <h3>Requisitos</h3>
+        <ul>
+          <li>Solicitar el valor de las ventas de cada día.</li>
+          <li>Validar que los valores no sean negativos.</li>
+          <li>Calcular el total vendido y el promedio diario.</li>
+          <li>Identificar el día con mayores ventas.</li>
+          <li>Contar cuántos días las ventas superaron los $300.000.</li>
+          <li>
+            Mostrar un mensaje de rendimiento: excelente si el promedio diario
+            supera los $400.000, aceptable si es igual o superior a $200.000, y
+            bajo si es menor.
+          </li>
+        </ul>
+        <h3>1. HTML (cópialo tal cual)</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>ejercicio6.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Ejercicio 6 · Estadísticas de ventas de un negocio&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href=&quot;index.html&quot;&gt;← Volver al menú&lt;/a&gt;
+    &lt;h1&gt;Ejercicio 6: Estadísticas de ventas de un negocio&lt;/h1&gt;
+    &lt;p id=&quot;etiquetas&quot;&gt;Ciclo for · Acumuladores · Condiciones anidadas&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;enunciado&quot;&gt;
+      &lt;h2&gt;Enunciado&lt;/h2&gt;
+      &lt;p&gt;Un negocio desea analizar las ventas realizadas durante siete días consecutivos.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Solicitar el valor de las ventas de cada día.&lt;/li&gt;
+        &lt;li&gt;Validar que los valores no sean negativos.&lt;/li&gt;
+        &lt;li&gt;Calcular el total vendido y el promedio diario.&lt;/li&gt;
+        &lt;li&gt;Identificar el día con mayores ventas.&lt;/li&gt;
+        &lt;li&gt;Contar cuántos días las ventas superaron los $300.000.&lt;/li&gt;
+        &lt;li&gt;Mostrar un mensaje de rendimiento: excelente si el promedio diario supera los $400.000, aceptable si es igual o superior a $200.000, y bajo si es menor.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;controles&quot;&gt;
+      &lt;form id=&quot;formulario&quot;&gt;
+        &lt;label for=&quot;venta1&quot;&gt;Venta del día 1:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;venta1&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;venta2&quot;&gt;Venta del día 2:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;venta2&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;venta3&quot;&gt;Venta del día 3:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;venta3&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;venta4&quot;&gt;Venta del día 4:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;venta4&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;venta5&quot;&gt;Venta del día 5:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;venta5&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;venta6&quot;&gt;Venta del día 6:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;venta6&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;venta7&quot;&gt;Venta del día 7:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;venta7&quot; step=&quot;any&quot; required&gt;
+        &lt;button type=&quot;submit&quot;&gt;Registrar ventas&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;resultado&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h2&gt;Resultados&lt;/h2&gt;
+      &lt;p id=&quot;mensaje&quot;&gt;Aún no hay datos. Presiona el botón para comenzar.&lt;/p&gt;
+      &lt;ul id=&quot;detalleDias&quot;&gt;&lt;/ul&gt;
+      &lt;p&gt;Total vendido: &lt;strong id=&quot;totalVendido&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Promedio diario: &lt;strong id=&quot;promedio&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Día con mayores ventas: &lt;strong id=&quot;mejorDia&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Días con ventas mayores a $300.000: &lt;strong id=&quot;diasAltos&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/ejercicio6.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>2. Solución en JavaScript</h3>
+        <p>Transcribe esta solución en el archivo JavaScript del ejercicio.</p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejercicio6.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>// ejercicio6.js — Estadísticas de ventas de un negocio
+
+// 1. Referencias
+let formulario = document.getElementById(&quot;formulario&quot;);
+let mensaje = document.getElementById(&quot;mensaje&quot;);
+let detalleDias = document.getElementById(&quot;detalleDias&quot;);
+let totalVendidoTexto = document.getElementById(&quot;totalVendido&quot;);
+let promedioTexto = document.getElementById(&quot;promedio&quot;);
+let mejorDiaTexto = document.getElementById(&quot;mejorDia&quot;);
+let diasAltosTexto = document.getElementById(&quot;diasAltos&quot;);
+
+
+// 3. Lógica
+formulario.addEventListener(&quot;submit&quot;, procesarFormulario);
+
+function procesarFormulario(evento) {
+  evento.preventDefault();
+  let total = 0;
+  let diasAltos = 0;
+  let ventaMayor = -1;
+  let mejorDia = 0;
+  let huboInvalido = false;
+  detalleDias.innerHTML = &quot;&quot;;
+
+  for (let dia = 1; dia &lt;= 7; dia++) {
+    let venta = parseFloat(document.getElementById(&quot;venta&quot; + dia).value);
+    if (Number.isNaN(venta) || venta &lt; 0) {
+      venta = 0;
+      huboInvalido = true;
+    }
+
+    total += venta;
+    if (venta &gt; 300000) {
+      diasAltos++;
+    }
+    if (venta &gt; ventaMayor) {
+      ventaMayor = venta;
+      mejorDia = dia;
+    }
+
+    let fila = document.createElement(&quot;li&quot;);
+    fila.textContent = &quot;Día &quot; + dia + &quot;: $&quot; + venta.toLocaleString(&quot;es-CO&quot;);
+    detalleDias.appendChild(fila);
+  }
+
+  let promedio = total / 7;
+  totalVendidoTexto.textContent = &quot;$&quot; + total.toLocaleString(&quot;es-CO&quot;);
+  promedioTexto.textContent = &quot;$&quot; + promedio.toLocaleString(&quot;es-CO&quot;, { maximumFractionDigits: 0 });
+  mejorDiaTexto.textContent = &quot;Día &quot; + mejorDia;
+  diasAltosTexto.textContent = diasAltos;
+
+  if (promedio &gt; 400000) {
+    mensaje.textContent = &quot;Rendimiento excelente.&quot;;
+  } else if (promedio &gt;= 200000) {
+    mensaje.textContent = &quot;Rendimiento aceptable.&quot;;
+  } else {
+    mensaje.textContent = &quot;Rendimiento bajo.&quot;;
+  }
+  if (huboInvalido) {
+    mensaje.textContent += &quot; Las ventas negativas o inválidas se contaron como 0.&quot;;
+  }
+}</code></pre>
+        </div>
+        <h3>3. Resultados</h3>
+        <p>
+          Muestra los datos con <code>textContent</code> o agrega filas a la
+          lista con <code>createElement()</code> y <code>appendChild()</code>.
+        </p>
+        <h3>4. Casos de prueba</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Datos que escribes</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>250000, 420000, 310000, 180000, 500000, 290000, 350000</td>
+              <td>
+                Total: $2.300.000 · Promedio: $328.571 · Mejor día: día 5 · Días
+                > $300.000: 4 · Rendimiento: aceptable
+              </td>
+            </tr>
+            <tr>
+              <td>500000, 450000, 600000, 380000, 420000, 410000, 390000</td>
+              <td>
+                Total: $3.150.000 · Promedio: $450.000 · Mejor día: día 3 · Días
+                > $300.000: 7 · Rendimiento: excelente
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section
+        class="paso"
+        id="paso-16"
+        data-titulo="Ejercicio 7 · Nómina de empleados"
+        aria-labelledby="t16"
+      >
+        <p class="paso-num">Paso 16 de 19</p>
+        <h2 id="t16">Ejercicio 7 · Nómina de empleados</h2>
+        <p class="etiquetas">Ciclos anidados · Condiciones · Acumuladores</p>
+        <p>
+          Una empresa necesita calcular el pago semanal de varios empleados.
+          Ingresa una línea por empleado con las horas trabajadas y el valor de
+          la hora separados por coma.
+        </p>
+        <h3>Requisitos</h3>
+        <ul>
+          <li>
+            Validar que las horas trabajadas y el valor de la hora sean
+            positivos.
+          </li>
+          <li>Pagar las horas ordinarias a la tarifa normal.</li>
+          <li>
+            Pagar las horas que superen las 40 semanales con un recargo del 25
+            %.
+          </li>
+          <li>Calcular el pago individual de cada empleado.</li>
+          <li>Acumular el total de la nómina.</li>
+          <li>Contar cuántos empleados trabajaron más de 40 horas.</li>
+          <li>Mostrar el total pagado por la empresa al finalizar.</li>
+        </ul>
+        <div class="nota info">
+          <p class="nota-t">Supuesto</p>
+          <p>
+            las horas extra se pagan a 1,25 veces el valor de la hora ordinaria.
+          </p>
+        </div>
+        <h3>1. HTML (cópialo tal cual)</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>ejercicio7.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Ejercicio 7 · Nómina de empleados&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href=&quot;index.html&quot;&gt;← Volver al menú&lt;/a&gt;
+    &lt;h1&gt;Ejercicio 7: Nómina de empleados&lt;/h1&gt;
+    &lt;p id=&quot;etiquetas&quot;&gt;Ciclos anidados · Condiciones · Acumuladores&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;enunciado&quot;&gt;
+      &lt;h2&gt;Enunciado&lt;/h2&gt;
+      &lt;p&gt;Una empresa necesita calcular el pago semanal de varios empleados. Para cada empleado, se registran en una línea las horas trabajadas y el valor de la hora, separados por coma.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Validar que las horas trabajadas y el valor de la hora sean positivos.&lt;/li&gt;
+        &lt;li&gt;Pagar las horas ordinarias a la tarifa normal.&lt;/li&gt;
+        &lt;li&gt;Pagar las horas que superen las 40 semanales con un recargo del 25 %.&lt;/li&gt;
+        &lt;li&gt;Calcular el pago individual de cada empleado.&lt;/li&gt;
+        &lt;li&gt;Acumular el total de la nómina.&lt;/li&gt;
+        &lt;li&gt;Contar cuántos empleados trabajaron más de 40 horas.&lt;/li&gt;
+        &lt;li&gt;Mostrar el total pagado por la empresa al finalizar.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;&lt;strong&gt;Supuesto:&lt;/strong&gt; las horas extra se pagan a 1,25 veces el valor de la hora ordinaria.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;controles&quot;&gt;
+      &lt;form id=&quot;formulario&quot;&gt;
+        &lt;label for=&quot;empleadosEntrada&quot;&gt;Registros de empleados: una línea por empleado, horas y valor por hora separados por coma.&lt;/label&gt;
+        &lt;textarea id=&quot;empleadosEntrada&quot; rows=&quot;4&quot; required&gt;&lt;/textarea&gt;
+        &lt;button type=&quot;submit&quot;&gt;Calcular nómina&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;resultado&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h2&gt;Resultados&lt;/h2&gt;
+      &lt;p id=&quot;mensaje&quot;&gt;Aún no hay datos. Presiona el botón para comenzar.&lt;/p&gt;
+      &lt;ul id=&quot;detalleEmpleados&quot;&gt;&lt;/ul&gt;
+      &lt;p&gt;Empleados registrados: &lt;strong id=&quot;cantidadEmpleados&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Empleados con más de 40 horas: &lt;strong id=&quot;conExtras&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Total de la nómina: &lt;strong id=&quot;totalNomina&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/ejercicio7.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>2. Solución en JavaScript</h3>
+        <p>Transcribe esta solución en el archivo JavaScript del ejercicio.</p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejercicio7.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>// ejercicio7.js — Nómina de empleados
+
+// 1. Referencias
+let formulario = document.getElementById(&quot;formulario&quot;);
+let mensaje = document.getElementById(&quot;mensaje&quot;);
+let detalleEmpleados = document.getElementById(&quot;detalleEmpleados&quot;);
+let cantidadEmpleadosTexto = document.getElementById(&quot;cantidadEmpleados&quot;);
+let conExtrasTexto = document.getElementById(&quot;conExtras&quot;);
+let totalNominaTexto = document.getElementById(&quot;totalNomina&quot;);
+
+
+// 3. Lógica
+formulario.addEventListener(&quot;submit&quot;, procesarFormulario);
+
+function procesarFormulario(evento) {
+  evento.preventDefault();
+  let empleados = document.getElementById(&quot;empleadosEntrada&quot;).value.trim().split(&quot;\n&quot;);
+  let cantidad = empleados.length;
+  let totalNomina = 0;
+  let conExtras = 0;
+  detalleEmpleados.innerHTML = &quot;&quot;;
+
+  for (let e = 1; e &lt;= cantidad; e++) {
+    let datos = empleados[e - 1].split(&quot;,&quot;);
+    let horas = parseFloat(datos[0]);
+    let valorHora = parseFloat(datos[1]);
+    let fila = document.createElement(&quot;li&quot;);
+
+    if (Number.isNaN(horas) || Number.isNaN(valorHora) || horas &lt;= 0 || valorHora &lt;= 0) {
+      fila.textContent = &quot;Empleado &quot; + e + &quot;: datos inválidos; no se calculó el pago.&quot;;
+    } else {
+      let pago = 0;
+      if (horas &gt; 40) {
+        pago = 40 * valorHora + (horas - 40) * valorHora * 1.25;
+        conExtras++;
+      } else {
+        pago = horas * valorHora;
+      }
+      totalNomina += pago;
+      fila.textContent = &quot;Empleado &quot; + e + &quot;: $&quot; + pago.toLocaleString(&quot;es-CO&quot;);
+    }
+
+    detalleEmpleados.appendChild(fila);
+  }
+
+  cantidadEmpleadosTexto.textContent = cantidad;
+  conExtrasTexto.textContent = conExtras;
+  totalNominaTexto.textContent = &quot;$&quot; + totalNomina.toLocaleString(&quot;es-CO&quot;);
+  mensaje.textContent = &quot;Nómina calculada. Los registros inválidos no se sumaron.&quot;;
+}</code></pre>
+        </div>
+        <h3>3. Resultados</h3>
+        <p>
+          Muestra los datos con <code>textContent</code> o agrega filas a la
+          lista con <code>createElement()</code> y <code>appendChild()</code>.
+        </p>
+        <h3>4. Casos de prueba</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Datos que escribes</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Líneas: 40,10000 / 45,12000 / 30,15000</td>
+              <td>
+                Pagos: $400.000 · $555.000 · $450.000 · Con más de 40 h: 1 ·
+                Total nómina: $1.405.000
+              </td>
+            </tr>
+            <tr>
+              <td>Líneas: 0,8000 / 50,8000</td>
+              <td>
+                Empleado 1 inválido · Pago empleado 2: $420.000 · Con más de 40
+                h: 1 · Total: $420.000
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section
+        class="paso"
+        id="paso-17"
+        data-titulo="Ejercicio 8 · Juego de adivinar el número"
+        aria-labelledby="t17"
+      >
+        <p class="paso-num">Paso 17 de 19</p>
+        <h2 id="t17">Ejercicio 8 · Juego de adivinar el número</h2>
+        <p class="etiquetas">Ciclo while · Condiciones · Contadores</p>
+        <p>
+          Desarrollar un juego en el que el programa tenga almacenado un número
+          secreto entre 1 y 100. El usuario debe adivinarlo en un máximo de
+          siete intentos.
+        </p>
+        <h3>Requisitos</h3>
+        <ul>
+          <li>Solicitar un número en cada intento.</li>
+          <li>Validar que esté entre 1 y 100.</li>
+          <li>
+            Indicar si el número secreto es mayor o menor que el número
+            ingresado.
+          </li>
+          <li>Contar los intentos realizados.</li>
+          <li>Finalizar cuando el usuario adivine o se quede sin intentos.</li>
+          <li>
+            Mostrar un mensaje de victoria o derrota y revelar el número secreto
+            si no lo adivina.
+          </li>
+        </ul>
+        <div class="nota info">
+          <p class="nota-t">Reto adicional</p>
+          <p>
+            otorgar una puntuación inicial de 100 puntos y restar 10 puntos por
+            cada intento incorrecto.
+          </p>
+        </div>
+        <h3>1. HTML (cópialo tal cual)</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>ejercicio8.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Ejercicio 8 · Juego de adivinar el número&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href=&quot;index.html&quot;&gt;← Volver al menú&lt;/a&gt;
+    &lt;h1&gt;Ejercicio 8: Juego de adivinar el número&lt;/h1&gt;
+    &lt;p id=&quot;etiquetas&quot;&gt;Ciclo while · Condiciones · Contadores&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;enunciado&quot;&gt;
+      &lt;h2&gt;Enunciado&lt;/h2&gt;
+      &lt;p&gt;Desarrollar un juego en el que el programa tenga almacenado un número secreto entre 1 y 100. El usuario debe adivinarlo en un máximo de siete intentos.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Solicitar un número en cada intento.&lt;/li&gt;
+        &lt;li&gt;Validar que esté entre 1 y 100.&lt;/li&gt;
+        &lt;li&gt;Indicar si el número secreto es mayor o menor que el número ingresado.&lt;/li&gt;
+        &lt;li&gt;Contar los intentos realizados.&lt;/li&gt;
+        &lt;li&gt;Finalizar cuando el usuario adivine o se quede sin intentos.&lt;/li&gt;
+        &lt;li&gt;Mostrar un mensaje de victoria o derrota y revelar el número secreto si no lo adivina.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;&lt;strong&gt;Reto adicional:&lt;/strong&gt; otorgar una puntuación inicial de 100 puntos y restar 10 puntos por cada intento incorrecto.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;controles&quot;&gt;
+      &lt;form id=&quot;formulario&quot;&gt;
+        &lt;label for=&quot;intentosEntrada&quot;&gt;Números para intentar, separados por comas (máximo 7 intentos válidos):&lt;/label&gt;
+        &lt;textarea id=&quot;intentosEntrada&quot; rows=&quot;3&quot; required&gt;&lt;/textarea&gt;
+        &lt;button type=&quot;submit&quot;&gt;Jugar&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;resultado&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h2&gt;Resultados&lt;/h2&gt;
+      &lt;p id=&quot;mensaje&quot;&gt;Aún no hay datos. Presiona el botón para comenzar.&lt;/p&gt;
+      &lt;ul id=&quot;registro&quot;&gt;&lt;/ul&gt;
+      &lt;p&gt;Intentos realizados: &lt;strong id=&quot;intentos&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Puntuación: &lt;strong id=&quot;puntos&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/ejercicio8.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>2. Solución en JavaScript</h3>
+        <p>Transcribe esta solución en el archivo JavaScript del ejercicio.</p>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/ejercicio8.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>// ejercicio8.js — Juego de adivinar el número
+
+// 1. Referencias
+let formulario = document.getElementById(&quot;formulario&quot;);
+let mensaje = document.getElementById(&quot;mensaje&quot;);
+let intentosTexto = document.getElementById(&quot;intentos&quot;);
+let puntosTexto = document.getElementById(&quot;puntos&quot;);
+let registro = document.getElementById(&quot;registro&quot;);
+
+
+// 3. Lógica
+formulario.addEventListener(&quot;submit&quot;, procesarFormulario);
+
+function procesarFormulario(evento) {
+  evento.preventDefault();
+  let secreto = 42; // para probar; luego: Math.floor(Math.random() * 100) + 1
+  let intentosEntrada = document.getElementById(&quot;intentosEntrada&quot;).value.split(&quot;,&quot;);
+  let intentos = 0;
+  let maxIntentos = 7;
+  let puntos = 100;
+  let adivino = false;
+  let posicion = 0;
+  registro.innerHTML = &quot;&quot;;
+
+  while (intentos &lt; maxIntentos &amp;&amp; posicion &lt; intentosEntrada.length &amp;&amp; adivino === false) {
+    let textoNumero = intentosEntrada[posicion].trim();
+    let numero = parseInt(textoNumero, 10);
+    let fila = document.createElement(&quot;li&quot;);
+
+    if (Number.isNaN(numero) || !Number.isInteger(Number(textoNumero)) || numero &lt; 1 || numero &gt; 100) {
+      fila.textContent = textoNumero + &quot;: inválido; no cuenta como intento.&quot;;
+    } else {
+      intentos++;
+      if (numero === secreto) {
+        adivino = true;
+        fila.textContent = numero + &quot;: correcto.&quot;;
+      } else if (numero &lt; secreto) {
+        puntos -= 10;
+        fila.textContent = numero + &quot;: el secreto es mayor.&quot;;
+      } else {
+        puntos -= 10;
+        fila.textContent = numero + &quot;: el secreto es menor.&quot;;
+      }
+    }
+
+    registro.appendChild(fila);
+    posicion++;
+  }
+
+  intentosTexto.textContent = intentos;
+  puntosTexto.textContent = puntos;
+  mensaje.textContent = adivino
+    ? &quot;¡Adivinaste el número secreto!&quot;
+    : &quot;No adivinaste. El número secreto era &quot; + secreto + &quot;.&quot;;
+}</code></pre>
+        </div>
+        <h3>3. Resultados</h3>
+        <p>
+          Muestra los datos con <code>textContent</code> o agrega filas a la
+          lista con <code>createElement()</code> y <code>appendChild()</code>.
+        </p>
+        <h3>4. Casos de prueba</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Datos que escribes</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Secreto 42: 50, 25, 150, 42</td>
+              <td>
+                50 → «el secreto es menor» · 25 → «es mayor» · 150 no cuenta ·
+                42 → victoria en 3 intentos · Puntos: 80
+              </td>
+            </tr>
+            <tr>
+              <td>Secreto 42: 10, 20, 30, 35, 38, 40, 41</td>
+              <td>
+                Siete intentos incorrectos: derrota, el secreto era 42 · Puntos:
+                30
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section
+        class="paso"
+        id="paso-18"
+        data-titulo="Reto final · Cajero automático"
+        aria-labelledby="t18"
+      >
+        <p class="paso-num">Paso 18 de 19</p>
+        <h2 id="t18">Reto final · Cajero automático</h2>
+        <p class="etiquetas">
+          Validaciones · Variables · Condicionales · Ciclos anidados
+        </p>
+        <p>
+          Este reto integra todo lo trabajado. Debes simular un cajero
+          automático que permita consultar, depositar y retirar dinero durante
+          una sesión.
+        </p>
+        <h3>Requisitos</h3>
+        <ul>
+          <li>
+            Ingresar el nombre del titular y el saldo inicial en el formulario.
+          </li>
+          <li>
+            Registrar una secuencia de operaciones con <code>do...while</code>:
+            1 consultar · 2 depositar · 3 retirar · 4 salir.
+          </li>
+          <li>
+            Escribir las operaciones separadas por punto y coma; para depósitos
+            y retiros, agregar dos puntos y el monto (por ejemplo:
+            <code>2:200000;3:150000;4</code>).
+          </li>
+          <li>
+            Si una opción no existe, registrarla como inválida y continuar con
+            la siguiente.
+          </li>
+          <li>
+            Depositar: el valor debe ser mayor que 0 y como máximo $2.000.000
+            por depósito.
+          </li>
+          <li>
+            Retirar: el valor debe ser mayor que 0, múltiplo de $10.000 y no
+            superar el saldo. Máximo 3 retiros exitosos por sesión.
+          </li>
+          <li>
+            Registrar cada operación (exitosa o rechazada) como un elemento de
+            la lista del historial.
+          </li>
+          <li>
+            Al salir, mostrar: titular, saldo final, total depositado, total
+            retirado y cantidad de operaciones exitosas.
+          </li>
+        </ul>
+        <div class="nota info">
+          <p class="nota-t">Restricción</p>
+          <p>
+            No uses arreglos; el historial se construye directamente en el DOM.
+          </p>
+        </div>
+        <h3>1. HTML (cópialo tal cual)</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>reto.html</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Reto final · Cajero automático&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href=&quot;index.html&quot;&gt;← Volver al menú&lt;/a&gt;
+    &lt;h1&gt;Reto final: Cajero automático&lt;/h1&gt;
+    &lt;p id=&quot;etiquetas&quot;&gt;Validaciones · Variables · Condicionales · Ciclos anidados&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id=&quot;enunciado&quot;&gt;
+      &lt;h2&gt;Enunciado&lt;/h2&gt;
+      &lt;p&gt;Simular un cajero automático que permita consultar, depositar y retirar dinero durante una sesión.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Ingresar el nombre del titular y el saldo inicial en el formulario.&lt;/li&gt;
+        &lt;li&gt;Registrar operaciones en orden con &lt;code&gt;do...while&lt;/code&gt;: 1. Consultar saldo · 2. Depositar · 3. Retirar · 4. Salir.&lt;/li&gt;
+        &lt;li&gt;Si la opción no existe, avisar y volver a mostrar el menú.&lt;/li&gt;
+        &lt;li&gt;Depositar: el valor debe ser mayor que 0 y como máximo $2.000.000 por depósito.&lt;/li&gt;
+        &lt;li&gt;Retirar: el valor debe ser mayor que 0, múltiplo de $10.000 y no superar el saldo. Máximo 3 retiros exitosos por sesión.&lt;/li&gt;
+        &lt;li&gt;Registrar cada operación (exitosa o rechazada) como un elemento de la lista del historial.&lt;/li&gt;
+        &lt;li&gt;Al salir, mostrar: titular, saldo final, total depositado, total retirado y cantidad de operaciones exitosas.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;&lt;strong&gt;Restricción:&lt;/strong&gt; no uses arreglos; el historial se construye directamente en el DOM.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;controles&quot;&gt;
+      &lt;form id=&quot;formulario&quot;&gt;
+        &lt;label for=&quot;titularEntrada&quot;&gt;Nombre del titular:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;titularEntrada&quot; required&gt;
+        &lt;label for=&quot;saldoEntrada&quot;&gt;Saldo inicial:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;saldoEntrada&quot; min=&quot;0&quot; step=&quot;any&quot; required&gt;
+        &lt;label for=&quot;operacionesEntrada&quot;&gt;Operaciones separadas por punto y coma. Usa 1 para consultar, 2:monto para depositar, 3:monto para retirar y 4 para salir.&lt;/label&gt;
+        &lt;textarea id=&quot;operacionesEntrada&quot; rows=&quot;4&quot; required&gt;&lt;/textarea&gt;
+        &lt;button type=&quot;submit&quot;&gt;Iniciar sesión en el cajero&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;resultado&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h2&gt;Resultados&lt;/h2&gt;
+      &lt;p id=&quot;mensaje&quot;&gt;Aún no hay datos. Presiona el botón para comenzar.&lt;/p&gt;
+      &lt;ul id=&quot;historial&quot;&gt;&lt;/ul&gt;
+      &lt;p&gt;Titular: &lt;strong id=&quot;titular&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Saldo final: &lt;strong id=&quot;saldoFinal&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Total depositado: &lt;strong id=&quot;totalDepositado&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Total retirado: &lt;strong id=&quot;totalRetirado&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Operaciones exitosas: &lt;strong id=&quot;operaciones&quot;&gt;—&lt;/strong&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;js/reto.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <h3>2. Estructura base del JavaScript</h3>
+        <div class="codigo">
+          <div class="codigo-cab">
+            <span>js/reto.js</span
+            ><button type="button" class="copiar">Copiar</button>
+          </div>
+          <pre><code>// reto.js — Cajero automático
+
+// 1. Referencias
+let formulario = document.getElementById(&quot;formulario&quot;);
+let mensaje = document.getElementById(&quot;mensaje&quot;);
+let historial = document.getElementById(&quot;historial&quot;);
+let titularTexto = document.getElementById(&quot;titular&quot;);
+let saldoFinalTexto = document.getElementById(&quot;saldoFinal&quot;);
+let totalDepositadoTexto = document.getElementById(&quot;totalDepositado&quot;);
+let totalRetiradoTexto = document.getElementById(&quot;totalRetirado&quot;);
+let operacionesTexto = document.getElementById(&quot;operaciones&quot;);
+
+
+// 3. Lógica
+formulario.addEventListener(&quot;submit&quot;, procesarFormulario);
+
+function procesarFormulario(evento) {
+  evento.preventDefault();
+  // TODO: valida titular y saldo al procesar el formulario.
+  // TODO: declara saldos y contadores; conserva operacionesPendientes como texto.
+  //       Extrae cada textoOperacion con indexOf(&quot;;&quot;) y slice(), sin arreglos.
+  // TODO: do {
+  //         opcion = parseInt(textoOperacion, 10);
+  //         obtiene el monto despues de &quot;:&quot; con indexOf() y parseFloat();
+  //         procesa consultar, depósito, retiro, salir u opción inválida;
+  //         agrega el resultado de la operación a historial.
+  //       } while (opcion !== 4 &amp;&amp; quedan operaciones);
+  // TODO: muestra el resumen final con textContent.
+}</code></pre>
+        </div>
+        <h3>3. Resultados</h3>
+        <p>
+          Muestra los datos con <code>textContent</code> o agrega filas a la
+          lista con <code>createElement()</code> y <code>appendChild()</code>.
+        </p>
+        <h3>4. Caso de prueba</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Acción</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Titular «Ana», saldo 300000 y operaciones:
+                2:200000;3:25000;3:600000;3:150000;7;1;4
+              </td>
+              <td>
+                Depósito exitoso · Los retiros de 25000 y 600000 se rechazan ·
+                Retiro de 150000 exitoso · Opción 7 inválida · Consulta:
+                $350.000 · Saldo final: $350.000 · Depositado: $200.000 ·
+                Retirado: $150.000 · Operaciones exitosas: 3.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Criterios para revisar el reto</h3>
+        <ul>
+          <li>
+            El ciclo <code>do...while</code> procesa operaciones hasta la opción
+            4 o hasta terminar la secuencia ingresada.
+          </li>
+          <li>
+            Ningún dato inválido (texto, negativos, vacío) se acepta sin
+            rechazar la operación.
+          </li>
+          <li>
+            El saldo nunca queda negativo y no se permiten más de 3 retiros.
+          </li>
+          <li>
+            El historial muestra todas las operaciones, exitosas y rechazadas.
+          </li>
+          <li>
+            El JavaScript está en <code>js/reto.js</code> y los resultados se
+            muestran con texto y una lista.
+          </li>
+        </ul>
+        <div class="nota info">
+          <p class="nota-t">Decisión de diseño</p>
+          <p>
+            Cuenta la consulta de saldo como operación exitosa. Si prefieres
+            contar solo depósitos y retiros, el caso de prueba debe dar 2
+            operaciones.
+          </p>
+        </div>
+      </section>
+      <section
+        class="paso"
+        id="paso-19"
+        data-titulo="Verificación y cierre"
+        aria-labelledby="t19"
+      >
+        <p class="paso-num">Paso 19 de 19</p>
+        <h2 id="t19">Verificación y cierre</h2>
+        <h3>Lista de verificación</h3>
+        <ul class="check">
+          <li>
+            La carpeta <code>ciclos-js</code> tiene la estructura indicada y los
+            JS están dentro de <code>js/</code>.
+          </li>
+          <li>
+            Ninguna página tiene CSS ni JavaScript escrito dentro del HTML.
+          </li>
+          <li>
+            Cada página carga su propio archivo JavaScript al final del
+            <code>&lt;body&gt;</code>.
+          </li>
+          <li>
+            El menú de <code>index.html</code> se genera con un ciclo y todos
+            los enlaces abren.
+          </li>
+          <li>Los 8 ejercicios dan los resultados de sus casos de prueba.</li>
+          <li>
+            Cada formulario usa el evento <code>submit</code> y muestra sus
+            resultados con texto.
+          </li>
+          <li>No hay ciclos infinitos: siempre hay forma de terminar.</li>
+          <li>El reto final cumple sus criterios.</li>
+        </ul>
+        <h3>Errores frecuentes</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Síntoma</th>
+              <th>Causa probable</th>
+              <th>Solución</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>La página se congela.</td>
+              <td>Ciclo infinito: la condición nunca cambia.</td>
+              <td>
+                Verifica que dentro del ciclo se pida un nuevo dato o se
+                actualice el contador.
+              </td>
+            </tr>
+            <tr>
+              <td>«1000» + «500» da «1000500».</td>
+              <td>
+                No se convirtió el texto del campo <code>.value</code> a número.
+              </td>
+              <td>
+                Usa <code>parseInt(..., 10)</code> para enteros o
+                <code>parseFloat(...)</code> para decimales.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>Cannot read properties of null</code> en la consola.
+              </td>
+              <td>
+                El <code>id</code> no coincide o el script se cargó antes del
+                HTML.
+              </td>
+              <td>
+                Revisa el <code>id</code> y que los
+                <code>&lt;script&gt;</code> estén al final del
+                <code>&lt;body&gt;</code>.
+              </td>
+            </tr>
+            <tr>
+              <td>El promedio muestra <code>NaN</code>.</td>
+              <td>División entre 0 o un dato inválido sumado.</td>
+              <td>
+                Valida antes de acumular y verifica que el contador sea mayor
+                que 0.
+              </td>
+            </tr>
+            <tr>
+              <td>El ciclo da una vuelta de más o de menos.</td>
+              <td>
+                Condición con <code>&lt;</code> en lugar de
+                <code>&lt;=</code> (o al revés).
+              </td>
+              <td>Haz una prueba de escritorio con los primeros valores.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="preguntas">
+          <p class="nota-t">Preguntas de cierre</p>
+          <ol>
+            <li>
+              ¿Por qué en el ejercicio de ventas una venta negativa se vuelve a
+              pedir, pero en el de notas se descarta?
+            </li>
+            <li>
+              ¿Qué papel cumple la variable bandera en el inicio de sesión y en
+              el juego de adivinar?
+            </li>
+            <li>
+              ¿Por qué el menú del cajero se resuelve mejor con
+              <code>do...while</code> que con <code>while</code>?
+            </li>
+            <li>
+              ¿Qué diferencia hay entre <code>parseInt()</code> y
+              <code>parseFloat()</code>?
+            </li>
+          </ol>
+        </div>
+      </section>
+      <div class="controles">
+        <button type="button" class="btn" id="btnAnt">← Anterior</button>
+        <button type="button" class="btn prim" id="btnSig">Siguiente →</button>
+      </div>
+    </main>
+    <script>
+      (function () {
+        var pasos = document.querySelectorAll(".paso");
+        var total = pasos.length;
+        var actual = 1;
+        var indicador = document.getElementById("indicador");
+        var barra = document.getElementById("barra");
+        var sel = document.getElementById("selPaso");
+        var ant = document.getElementById("btnAnt");
+        var sig = document.getElementById("btnSig");
+
+        function mostrar(n, desplazar) {
+          if (n < 1) n = 1;
+          if (n > total) n = total;
+          actual = n;
+          for (var i = 0; i < total; i++) {
+            pasos[i].hidden = i !== n - 1;
+          }
+          var titulo = pasos[n - 1].getAttribute("data-titulo");
+          indicador.textContent = "Paso " + n + " de " + total + " · " + titulo;
+          barra.value = n;
+          sel.value = String(n);
+          ant.disabled = n === 1;
+          if (n === total) {
+            sig.textContent = "✓ Guía completada";
+            sig.disabled = true;
+          } else {
+            sig.textContent = "Siguiente →";
+            sig.disabled = false;
+          }
+          if (history.replaceState)
+            history.replaceState(null, "", "#paso-" + n);
+          if (desplazar)
+            window.scrollTo({
+              top: document.getElementById("contenido").offsetTop - 70,
+              behavior: "smooth",
+            });
+        }
+
+        ant.addEventListener("click", function () {
+          mostrar(actual - 1, true);
+        });
+        sig.addEventListener("click", function () {
+          mostrar(actual + 1, true);
+        });
+        sel.addEventListener("change", function () {
+          mostrar(parseInt(sel.value, 10), true);
+        });
+
+        var bloquesCodigo = document.querySelectorAll(".codigo");
+        for (var c = 0; c < bloquesCodigo.length; c++) {
+          var bloque = bloquesCodigo[c];
+          var etiqueta = bloque
+            .querySelector(".codigo-cab span")
+            .textContent.trim();
+          if (/\.html$/i.test(etiqueta)) {
+            bloque.classList.add("copiable-html");
+          } else {
+            var botonDeshabilitado = bloque.querySelector(".copiar");
+            botonDeshabilitado.disabled = true;
+            botonDeshabilitado.textContent = "Transcribir";
+            botonDeshabilitado.title = "Solo se permite copiar bloques HTML";
+            bloque.addEventListener("copy", function (evento) {
+              evento.preventDefault();
+            });
+          }
+        }
+
+        var botones = document.querySelectorAll(".copiar:not(:disabled)");
+        for (var b = 0; b < botones.length; b++) {
+          botones[b].addEventListener("click", function () {
+            var boton = this;
+            var codigo = boton.closest(".codigo").querySelector("code");
+            var texto = codigo.textContent;
+            function listo() {
+              boton.textContent = "¡Copiado!";
+              setTimeout(function () {
+                boton.textContent = "Copiar";
+              }, 1500);
+            }
+            function seleccionar() {
+              var rango = document.createRange();
+              rango.selectNodeContents(codigo);
+              var seleccion = window.getSelection();
+              seleccion.removeAllRanges();
+              seleccion.addRange(rango);
+              boton.textContent = "Seleccionado: Ctrl+C";
+            }
+            if (navigator.clipboard && window.isSecureContext) {
+              navigator.clipboard.writeText(texto).then(listo, seleccionar);
+            } else {
+              seleccionar();
+            }
+          });
+        }
+
+        var m = /^#paso-(\d+)$/.exec(location.hash);
+        mostrar(m ? parseInt(m[1], 10) : 1, false);
+      })();
+    </script>
+  </body>
+</html>
